@@ -1,2 +1,2 @@
-# LNP
-Lazy Neural Planner
+# LNP - **L**azy **N**eural **P**lanner
+

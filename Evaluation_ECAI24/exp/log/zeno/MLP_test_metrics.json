@@ -1,0 +1,30 @@
+{
+    "ID": "test",
+    "DS_DOMAIN": "zeno",
+    "Max_Step": 20,
+    "Int_ML": 1,
+    "N_SAMPLES": 1500,
+    "LOG_DIR": "exp/log",
+    "MODEL": "MLP",
+    "DEVICE": "cpu",
+    "SEED": 1,
+    "BATCH_SIZE": 256,
+    "LEARNING_RATE": 7.5e-05,
+    "WEIGHT_DECAY": 1e-12,
+    "EPOCHS": 4500,
+    "N_LAYERS": 4,
+    "N_HIDDEN": 18,
+    "DROPOUT": 0.1,
+    "N_MODELS": 16,
+    "REC_EPOCHS": 2000,
+    "REC_LR": 150.0,
+    "N_REC_VARS": 1,
+    "opti_threshold": 1000000000,
+    "SCALE": 0,
+    "Listener": "full",
+    "RESULTS": {
+        "train_loss": 0.3157922327518463,
+        "val_loss": 0.017476161941885948,
+        "test_loss": 0.013818660750985146
+    }
+}

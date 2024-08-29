@@ -17,6 +17,9 @@ We benchmarked our approach against the only other approach capable of handling 
 
 Our benchmarks were conducted across four different domains. We made slight modifications to the Zenotravel and Drone domains from the numerical track of [IPC23](https://github.com/ipc2023-numeric/ipc2023-dataset) to integrate control parameters. Additionally, we adapted the [cashpoint domain](https://github.com/Emresav/ECAI16Domains/tree/master) introduced by [Savaş et al.](https://ebooks.iospress.nl/doi/10.3233/978-1-61499-672-9-1185) by omitting time constraints. Lastly, we utilized the [FliPSI-domain](https://github.com/imb-hsu/FliPSi) domain for our analysis.
 
+![image](https://github.com/user-attachments/assets/9630d5b8-099d-4a75-978f-94a9a736787d)
+
+
 ## Citation
 When using the code from this paper, please cite:
 ```

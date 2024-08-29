@@ -1,6 +1,6 @@
 # Lazy Neural Planner - LNP
 
-This is the repository for our publication A Lazy Approach to Neural Numerical Planning with Control Parameters.
+This is the repository for our publication _A Lazy Approach to Neural Numerical Planning with Control Parameters_.
 
 ## Content
 We present a lazy, hierarchical approach to tackle the challenge of planning in complex numerical domains, where the effects of actions are influenced by control parameters, and may be described by neural networks.

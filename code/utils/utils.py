@@ -3,6 +3,7 @@ import math
 import json
 import torch
 import numpy as np
+from path_utils import normalize_log_dir, to_repo_relative
 
 class AutoStop:
     def __init__(self, tolerance_e=40, min_delta=0.0001, max_delta=0.001):
@@ -20,7 +21,7 @@ class AutoStop:
                 if self.counter_min > self.tolerance*2:
                     print("\n\nAutostop: Convergence criterion\n\n")
                     return True
-            self.min_loss = max(loss)
+            self.min_loss = loss
             self.counter_min, self.counter_max = 0, 0
         elif loss > (self.min_loss + self.max_delta):
             self.counter_max += 1
@@ -34,9 +35,10 @@ class AutoStop:
         return False
 
 def save_metrics(metrics: dict, hparam: dict):
-    log_path = f"{hparam['LOG_DIR']}/{hparam['DS_DOMAIN']}"
+    log_dir = normalize_log_dir(hparam)
+    log_path = log_dir / hparam["DS_DOMAIN"]
     file_name = f"{hparam['MODEL']}_{hparam['ID']}_metrics.json"
-    full_path = os.path.join(log_path, file_name)
+    full_path = log_path / file_name
 
     if not os.path.exists(log_path):
         os.makedirs(log_path, exist_ok=True)
@@ -45,7 +47,7 @@ def save_metrics(metrics: dict, hparam: dict):
     with open(full_path, "w") as json_file:
         json.dump(hparam, json_file, indent=4)
 
-    return print(f"Metrics saved in {full_path}.")
+    return print(f"Metrics saved in {to_repo_relative(full_path)}.")
 
 def listener(hparam: dict): # TODO change name into stasi-function
     """

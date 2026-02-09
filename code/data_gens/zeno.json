@@ -1,0 +1,1111 @@
+{
+  "variables": [
+    "location_p1",
+    "location_p2",
+    "location_p3",
+    "in_p1",
+    "in_p2",
+    "in_p3",
+    "location_a1",
+    "fuel_a1",
+    "onboard_a1",
+    "total_fuel_used"
+  ],
+  "variable_types": {
+    "location_p1": "continuous",
+    "location_p2": "continuous",
+    "location_p3": "continuous",
+    "in_p1": "continuous",
+    "in_p2": "continuous",
+    "in_p3": "continuous",
+    "location_a1": "continuous",
+    "fuel_a1": "continuous",
+    "onboard_a1": "continuous",
+    "total_fuel_used": "continuous"
+  },
+  "learned_actions": [
+    "ML_refuel"
+  ],
+  "fix_parameters": {
+    "names": [
+      "dis_0_1",
+      "dis_0_2",
+      "dis_1_2",
+      "slow_burn_a1",
+      "fast_burn_a1",
+      "capacity_a1",
+      "zoom_limit_a1"
+    ],
+    "values": [
+      "6.0",
+      "7.0",
+      "8.0",
+      "4.0",
+      "1.50",
+      "100.0",
+      "8.0"
+    ]
+  },
+  "variable_parameters": {
+    "names": [
+      "fuel"
+    ],
+    "top": [
+      200.0
+    ],
+    "down": [
+      0.0
+    ]
+  },
+  "subsymbolic_preconditions": [
+    [
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      "<capacity_a1",
+      ">=0.0",
+      ">=0.0"
+    ]
+  ],
+  "listener": {
+    "labels": [
+      [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0"
+      ]
+    ],
+    "variable_parameters": [
+      [
+        "10.0"
+      ]
+    ]
+  },
+  "problem": {
+    "init": [
+      "0.0",
+      "0.0",
+      "0.0",
+      "0.0",
+      "10.0",
+      "0.0",
+      "10.0",
+      "100.0",
+      "10.0",
+      "0.0"
+    ],
+    "goal": [
+      "10.0",
+      "20.0",
+      "10.0",
+      "0.0",
+      "0.0",
+      "0.0",
+      "20.0",
+      ">100.0",
+      "0.0",
+      ">=0.0"
+    ]
+  },
+  "dataset": {
+    "name": "ML_refuel",
+    "input_layout": {
+      "state": [
+        "location_p1",
+        "location_p2",
+        "location_p3",
+        "in_p1",
+        "in_p2",
+        "in_p3",
+        "location_a1",
+        "fuel_a1",
+        "onboard_a1",
+        "total_fuel_used"
+      ],
+      "fix_parameters": [
+        "dis_0_1",
+        "dis_0_2",
+        "dis_1_2",
+        "slow_burn_a1",
+        "fast_burn_a1",
+        "capacity_a1",
+        "zoom_limit_a1"
+      ],
+      "variable_parameters": [
+        "fuel"
+      ]
+    },
+    "output_layout": {
+      "state": [
+        "location_p1",
+        "location_p2",
+        "location_p3",
+        "in_p1",
+        "in_p2",
+        "in_p3",
+        "location_a1",
+        "fuel_a1",
+        "onboard_a1",
+        "total_fuel_used"
+      ]
+    },
+    "state_sampling": {
+      "location_p1": {
+        "type": "categorical",
+        "values": [
+          0,
+          10
+        ]
+      },
+      "location_p2": {
+        "type": "categorical",
+        "values": [
+          0,
+          10
+        ]
+      },
+      "location_p3": {
+        "type": "fixed",
+        "value": 0
+      },
+      "in_p1": {
+        "type": "fixed",
+        "value": 0
+      },
+      "in_p2": {
+        "type": "fixed",
+        "value": 0
+      },
+      "in_p3": {
+        "type": "fixed",
+        "value": 0
+      },
+      "location_a1": {
+        "type": "fixed",
+        "value": 0
+      },
+      "fuel_a1": {
+        "type": "range",
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      "onboard_a1": {
+        "type": "fixed",
+        "value": 0
+      },
+      "total_fuel_used": {
+        "type": "fixed",
+        "value": 0
+      }
+    },
+    "fix_parameter_sampling": {
+      "dis_0_1": {
+        "type": "range",
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      "dis_0_2": {
+        "type": "range",
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      "dis_1_2": {
+        "type": "range",
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      "slow_burn_a1": {
+        "type": "range",
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      "fast_burn_a1": {
+        "type": "range",
+        "min": 0,
+        "max": 10,
+        "step": 1
+      },
+      "capacity_a1": {
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      "zoom_limit_a1": {
+        "type": "range",
+        "min": 0,
+        "max": 10,
+        "step": 1
+      }
+    },
+    "variable_parameter_sampling": {
+      "fuel": {
+        "type": "expr",
+        "expr": "state_out['fuel_a1'] - state_in['fuel_a1']"
+      }
+    },
+    "effects": [
+      {
+        "var": "fuel_a1",
+        "op": "set_expr",
+        "expr": "dis_0_1"
+      }
+    ],
+    "constraints": []
+  },
+  "actions": [
+    {
+      "name": "board_a1_p1_c0",
+      "preconditions": [
+        "0.0",
+        null,
+        null,
+        "0.0",
+        null,
+        null,
+        "0.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "-0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p1_c1",
+      "preconditions": [
+        "10.0",
+        null,
+        null,
+        "0.0",
+        null,
+        null,
+        "10.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "-10.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p1_c2",
+      "preconditions": [
+        "20.0",
+        null,
+        null,
+        "0.0",
+        null,
+        null,
+        "20.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "-20.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p2c0",
+      "preconditions": [
+        null,
+        "00.0",
+        null,
+        null,
+        "0.0",
+        null,
+        "0.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "-0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p2_c1",
+      "preconditions": [
+        null,
+        "10.0",
+        null,
+        null,
+        "0.0",
+        null,
+        "10.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p2_c2",
+      "preconditions": [
+        null,
+        "20.0",
+        null,
+        null,
+        "0.0",
+        null,
+        "20.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "-20.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p3_c0",
+      "preconditions": [
+        null,
+        null,
+        "0.0",
+        null,
+        null,
+        "0.0",
+        "0.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "-0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p3_c1",
+      "preconditions": [
+        null,
+        null,
+        "10.0",
+        null,
+        null,
+        "0.0",
+        "10.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "board_a1_p3_c2",
+      "preconditions": [
+        null,
+        null,
+        "20.0",
+        null,
+        null,
+        "0.0",
+        "20.0",
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "-20.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p1_c0",
+      "preconditions": [
+        null,
+        null,
+        null,
+        ">=10.0",
+        null,
+        null,
+        "0.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p1_c1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        ">=10.0",
+        null,
+        null,
+        "10.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "10.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p1_c2",
+      "preconditions": [
+        null,
+        null,
+        null,
+        ">=10.0",
+        null,
+        null,
+        "20.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "20.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p2_c0",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        ">=10.0",
+        null,
+        "0.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p2_c1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        ">=10.0",
+        null,
+        "10.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p2_c2",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        ">=10.0",
+        null,
+        "20.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "20.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p3_c0",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        ">=10.0",
+        "0.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p3_c1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        ">=10.0",
+        "10.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "10.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "debark_a1_p3_c2",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        ">=10.0",
+        "20.0",
+        null,
+        ">=10.0",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "20.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "fs_c0_c1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "0.0",
+        ">=(dis_0_1*slow_burn_a1)",
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "-(dis_0_1*slow_burn_a1)",
+        "0.0",
+        "(dis_0_1*slow_burn_a1)"
+      ]
+    },
+    {
+      "name": "fs_c0_c2",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "0.0",
+        ">=(dis_0_2*slow_burn_a1)",
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "20.0",
+        "-(dis_0_2*slow_burn_a1)",
+        "0.0",
+        "(dis_0_2*slow_burn_a1)"
+      ]
+    },
+    {
+      "name": "fs_c1_c2",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "10.0",
+        ">=(dis_1_2*slow_burn_a1)",
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "-(dis_1_2*slow_burn_a1)",
+        "0.0",
+        "(dis_1_2*slow_burn_a1)"
+      ]
+    },
+    {
+      "name": "fs_c1_c0",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "10.0",
+        ">=(dis_0_1*slow_burn_a1)",
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "-(dis_0_1*slow_burn_a1)",
+        "0.0",
+        "(dis_0_1*slow_burn_a1)"
+      ]
+    },
+    {
+      "name": "fs_c2_c0",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "20.0",
+        ">=(dis_0_2*slow_burn_a1)",
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-20.0",
+        "-(dis_0_2*slow_burn_a1)",
+        "0.0",
+        "(dis_0_2*slow_burn_a1)"
+      ]
+    },
+    {
+      "name": "fs_c2_c1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "20.0",
+        ">=(dis_1_2*slow_burn_a1)",
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "-(dis_1_2*slow_burn_a1)",
+        "0.0",
+        "(dis_1_2*slow_burn_a1)"
+      ]
+    },
+    {
+      "name": "ff_c0_c1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "0.0",
+        ">=(dis_0_1*fast_burn_a1)",
+        "<=zoom_limit_a1",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "-(dis_0_1*fast_burn_a1)",
+        "0.0",
+        "(dis_0_1*fast_burn_a1)"
+      ]
+    },
+    {
+      "name": "ff_c0_c2",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "0.0",
+        ">=(dis_0_2*fast_burn_a1)",
+        "<=zoom_limit_a1",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "20.0",
+        "-(dis_0_2*fast_burn_a1)",
+        "0.0",
+        "(dis_0_2*fast_burn_a1)"
+      ]
+    },
+    {
+      "name": "ff_c1_c2",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "10.0",
+        ">=(dis_1_2*fast_burn_a1)",
+        "<=zoom_limit_a1",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "10.0",
+        "-(dis_1_2*fast_burn_a1)",
+        "0.0",
+        "(dis_1_2*fast_burn_a1)"
+      ]
+    },
+    {
+      "name": "ff_c1_c0",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "10.0",
+        ">=(dis_0_1*fast_burn_a1)",
+        "<=zoom_limit_a1",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "-(dis_0_1*fast_burn_a1)",
+        "0.0",
+        "(dis_0_1*fast_burn_a1)"
+      ]
+    },
+    {
+      "name": "ff_c2_c0",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "20.0",
+        ">=(dis_0_2*fast_burn_a1)",
+        "<=zoom_limit_a1",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-20.0",
+        "-(dis_0_2*fast_burn_a1)",
+        "0.0",
+        "(dis_0_2*fast_burn_a1)"
+      ]
+    },
+    {
+      "name": "ff_c2_c1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        "20.0",
+        ">=(dis_1_2*fast_burn_a1)",
+        "<=zoom_limit_a1",
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "-10.0",
+        "-(dis_1_2*fast_burn_a1)",
+        "0.0",
+        "(dis_1_2*fast_burn_a1)"
+      ]
+    },
+    {
+      "name": "refuel",
+      "preconditions": [
+        ">=3000.0",
+        null,
+        "<=0.0",
+        null,
+        null,
+        null,
+        null,
+        "<capacity_a1",
+        null,
+        null
+      ],
+      "effects": [
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "fuel",
+        "0.0",
+        "0.0"
+      ]
+    }
+  ]
+}

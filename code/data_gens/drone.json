@@ -1,0 +1,400 @@
+{
+  "variables": [
+    "visited_loc1",
+    "visited_loc2",
+    "x_axis",
+    "y_axis",
+    "z_axis",
+    "battery_level"
+  ],
+  "variable_types": {
+    "visited_loc1": "boolean",
+    "visited_loc2": "boolean",
+    "x_axis": "continuous",
+    "y_axis": "continuous",
+    "z_axis": "continuous",
+    "battery_level": "continuous"
+  },
+  "learned_actions": [
+    "L_charge"
+  ],
+  "fix_parameters": {
+    "names": [
+      "battery_level_full",
+      "min_x",
+      "min_y",
+      "min_z",
+      "max_x",
+      "max_y",
+      "max_z"
+    ],
+    "values": [
+      200.0,
+      0.0,
+      0.0,
+      0.0,
+      40.0,
+      40.0,
+      40.0
+    ]
+  },
+  "variable_parameters": {
+    "names": [
+      "energy"
+    ],
+    "top": [
+      130.0
+    ],
+    "down": [
+      0.0
+    ]
+  },
+  "subsymbolic_preconditions": [
+    [
+      ">=0.0",
+      ">=0.0",
+      0.0,
+      0.0,
+      0.0,
+      "<battery_level_full"
+    ]
+  ],
+  "listener": {
+    "labels": [
+      [
+        false,
+        false,
+        0.0,
+        0.0,
+        0.0,
+        10.0
+      ]
+    ],
+    "variable_parameters": [
+      [
+        10.0
+      ]
+    ]
+  },
+  "problem": {
+    "init": [
+      false,
+      false,
+      0.0,
+      0.0,
+      0.0,
+      90
+    ],
+    "goal": [
+      true,
+      true,
+      0.0,
+      0.0,
+      0.0,
+      ">90"
+    ]
+  },
+  "dataset": {
+    "name": "L_charge",
+    "input_layout": {
+      "state": [
+        "visited_loc1",
+        "visited_loc2",
+        "x_axis",
+        "y_axis",
+        "z_axis",
+        "battery_level"
+      ],
+      "fix_parameters": [
+        "battery_level_full",
+        "min_x",
+        "min_y",
+        "min_z",
+        "max_x",
+        "max_y",
+        "max_z"
+      ],
+      "variable_parameters": [
+        "energy"
+      ]
+    },
+    "output_layout": {
+      "state": [
+        "visited_loc1",
+        "visited_loc2",
+        "x_axis",
+        "y_axis",
+        "z_axis",
+        "battery_level"
+      ]
+    },
+    "state_sampling": {
+      "visited_loc1": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "visited_loc2": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "x_axis": {
+        "type": "fixed",
+        "value": 0
+      },
+      "y_axis": {
+        "type": "fixed",
+        "value": 0
+      },
+      "z_axis": {
+        "type": "fixed",
+        "value": 0
+      },
+      "battery_level": {
+        "type": "range",
+        "min": 0,
+        "max": 90,
+        "step": 10
+      }
+    },
+    "fix_parameter_sampling": {
+      "battery_level_full": {
+        "type": "fixed",
+        "value": 150
+      },
+      "min_x": {
+        "type": "range",
+        "min": 0,
+        "max": 20,
+        "step": 10
+      },
+      "min_y": {
+        "type": "range",
+        "min": 0,
+        "max": 20,
+        "step": 10
+      },
+      "min_z": {
+        "type": "range",
+        "min": 0,
+        "max": 20,
+        "step": 10
+      },
+      "max_x": {
+        "type": "range",
+        "min": 30,
+        "max": 50,
+        "step": 10
+      },
+      "max_y": {
+        "type": "range",
+        "min": 30,
+        "max": 50,
+        "step": 10
+      },
+      "max_z": {
+        "type": "range",
+        "min": 30,
+        "max": 50,
+        "step": 10
+      }
+    },
+    "variable_parameter_sampling": {
+      "energy": {
+        "type": "range",
+        "min": 10,
+        "max": 60,
+        "step": 10
+      }
+    },
+    "effects": [
+      {
+        "var": "battery_level",
+        "op": "add",
+        "src": "energy"
+      }
+    ],
+    "constraints": [
+      "battery_level >= 0",
+      "battery_level <= battery_level_full"
+    ]
+  },
+  "actions": [
+    {
+      "name": "in_x",
+      "preconditions": [
+        null,
+        null,
+        "<=max_x-10.0",
+        null,
+        null,
+        ">=10.0"
+      ],
+      "effects": [
+        null,
+        null,
+        10.0,
+        0.0,
+        0.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "in_y",
+      "preconditions": [
+        null,
+        null,
+        null,
+        "<=max_y-10.0",
+        null,
+        ">=10.0"
+      ],
+      "effects": [
+        null,
+        null,
+        0.0,
+        10.0,
+        0.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "in_z",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        "<=max_z-10.0",
+        ">=10.0"
+      ],
+      "effects": [
+        null,
+        null,
+        0.0,
+        0.0,
+        10.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "de_x",
+      "preconditions": [
+        null,
+        null,
+        ">=min_x+10.0",
+        null,
+        null,
+        ">=10.0"
+      ],
+      "effects": [
+        null,
+        null,
+        -10.0,
+        0.0,
+        0.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "de_y",
+      "preconditions": [
+        null,
+        null,
+        null,
+        ">=min_y+10.0",
+        null,
+        ">=10.0"
+      ],
+      "effects": [
+        false,
+        false,
+        0.0,
+        -10.0,
+        0.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "de_z",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        ">=min_z+10.0",
+        ">=10.0"
+      ],
+      "effects": [
+        null,
+        null,
+        0.0,
+        0.0,
+        -10.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "visit_l1",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        ">=10.0"
+      ],
+      "effects": [
+        true,
+        null,
+        0.0,
+        0.0,
+        0.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "visit_l2",
+      "preconditions": [
+        null,
+        null,
+        10.0,
+        null,
+        null,
+        ">=10.0"
+      ],
+      "effects": [
+        null,
+        true,
+        0.0,
+        0.0,
+        0.0,
+        -10.0
+      ]
+    },
+    {
+      "name": "recharge",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        ">10000"
+      ],
+      "effects": [
+        null,
+        null,
+        0.0,
+        0.0,
+        0.0,
+        "energy"
+      ]
+    }
+  ]
+}

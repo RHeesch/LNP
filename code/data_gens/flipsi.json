@@ -1,0 +1,276 @@
+{
+  "variables": [
+    "coloured",
+    "temperature",
+    "milled",
+    "drilled",
+    "rounded"
+  ],
+  "variable_types": {
+    "coloured": "boolean",
+    "temperature": "continuous",
+    "milled": "boolean",
+    "drilled": "boolean",
+    "rounded": "boolean"
+  },
+  "learned_actions": [
+    "L_Heat"
+  ],
+  "fix_parameters": {
+    "names": [
+      "volume",
+      "density",
+      "specific_heat_capacity"
+    ],
+    "values": [
+      "1.5",
+      "8730",
+      "377"
+    ]
+  },
+  "variable_parameters": {
+    "names": [
+      "energy_input"
+    ],
+    "top": [
+      100
+    ],
+    "down": [
+      0
+    ]
+  },
+  "subsymbolic_preconditions": [
+    [
+      "",
+      "<=100",
+      "",
+      "",
+      ""
+    ]
+  ],
+  "listener": {
+    "labels": [
+      [
+        true,
+        "10.0",
+        true,
+        true,
+        true
+      ]
+    ],
+    "variable_parameters": [
+      [
+        "10.0"
+      ]
+    ]
+  },
+  "problem": {
+    "init": [
+      false,
+      "5.0",
+      false,
+      false,
+      false
+    ],
+    "goal": [
+      true,
+      "20.0",
+      true,
+      true,
+      true
+    ]
+  },
+  "dataset": {
+    "name": "L_Heat",
+    "input_layout": {
+      "state": [
+        "coloured",
+        "temperature",
+        "milled",
+        "drilled",
+        "rounded"
+      ],
+      "fix_parameters": [
+        "volume",
+        "density",
+        "specific_heat_capacity"
+      ],
+      "variable_parameters": [
+        "energy_input"
+      ]
+    },
+    "output_layout": {
+      "state": [
+        "coloured",
+        "temperature",
+        "milled",
+        "drilled",
+        "rounded"
+      ]
+    },
+    "state_sampling": {
+      "coloured": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "temperature": {
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "float": true
+      },
+      "milled": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "drilled": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "rounded": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      }
+    },
+    "fix_parameter_sampling": {
+      "volume": {
+        "type": "range",
+        "min": 1,
+        "max": 2,
+        "step": 1,
+        "float": true
+      },
+      "density": {
+        "type": "range",
+        "min": 2000,
+        "max": 10000,
+        "step": 1,
+        "float": true
+      },
+      "specific_heat_capacity": {
+        "type": "range",
+        "min": 250,
+        "max": 1000,
+        "step": 1,
+        "float": true
+      }
+    },
+    "variable_parameter_sampling": {
+      "energy_input": {
+        "type": "range",
+        "min": 0,
+        "max_expr": "(100 - temperature) * (volume * density * specific_heat_capacity)",
+        "step": 1,
+        "float": true
+      }
+    },
+    "effects": [
+      {
+        "var": "temperature",
+        "op": "add_expr",
+        "expr": "energy_input * ((volume * density * specific_heat_capacity) ** (-1))"
+      }
+    ],
+    "constraints": []
+  },
+  "actions": [
+    {
+      "name": "Mill",
+      "preconditions": [
+        false,
+        "",
+        false,
+        "",
+        ""
+      ],
+      "effects": [
+        false,
+        "0.0",
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "Drill",
+      "preconditions": [
+        "",
+        "",
+        "",
+        false,
+        false
+      ],
+      "effects": [
+        null,
+        "0",
+        null,
+        true,
+        null
+      ]
+    },
+    {
+      "name": "CNC",
+      "preconditions": [
+        "",
+        "",
+        "",
+        "",
+        false
+      ],
+      "effects": [
+        null,
+        "0",
+        null,
+        null,
+        true
+      ]
+    },
+    {
+      "name": "Paint",
+      "preconditions": [
+        false,
+        ">=20",
+        "",
+        "",
+        ""
+      ],
+      "effects": [
+        true,
+        "0",
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "Heat",
+      "preconditions": [
+        "<=10",
+        "<=0.0",
+        "",
+        "",
+        ""
+      ],
+      "effects": [
+        null,
+        "(energy_input*1000000)*((volume*density*specific_heat_capacity*1000*100)**(-1))",
+        null,
+        null,
+        null
+      ]
+    }
+  ]
+}

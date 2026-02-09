@@ -48,6 +48,28 @@ class Autoencoder(nn.Module):
         return y
 
 
+# Backwards-compatible alias used throughout the repo.
+NeuralAction = Autoencoder
+
+
+class FeedForwardNN(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim, n_layers, dropout):
+        super(FeedForwardNN, self).__init__()
+        layers = []
+        for layer in range(n_layers - 1):
+            if layer == 0:
+                layers.append(nn.Linear(input_dim, hidden_dim))
+            else:
+                layers.append(nn.Linear(hidden_dim, hidden_dim))
+            layers.append(nn.ReLU())
+            layers.append(nn.Dropout(p=dropout))
+        layers.append(nn.Linear(hidden_dim, output_dim))
+        self.net = nn.Sequential(*layers)
+
+    def forward(self, x, params=None, training=True):
+        return self.net(x)
+
+
 
 # Quicktest
 if __name__ == "__main__":

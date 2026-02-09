@@ -1,0 +1,1162 @@
+{
+  "variables": [
+    "at_pub",
+    "at_supermarket",
+    "at_home",
+    "at_bank_1",
+    "at_bank_2",
+    "can_withdraw_money_bank1",
+    "can_withdraw_money_bank2",
+    "canbuy_pub",
+    "canbuy_supermarket",
+    "gotsnackes",
+    "have_enough_dollar",
+    "in_pocket",
+    "max_withdraw_bank_1",
+    "max_withdraw_bank_2"
+  ],
+  "variable_types": {
+    "at_pub": "boolean",
+    "at_supermarket": "boolean",
+    "at_home": "boolean",
+    "at_bank_1": "boolean",
+    "at_bank_2": "boolean",
+    "can_withdraw_money_bank1": "boolean",
+    "can_withdraw_money_bank2": "boolean",
+    "canbuy_pub": "boolean",
+    "canbuy_supermarket": "boolean",
+    "gotsnackes": "boolean",
+    "have_enough_dollar": "boolean",
+    "in_pocket": "continuous",
+    "max_withdraw_bank_1": "continuous",
+    "max_withdraw_bank_2": "continuous"
+  },
+  "learned_actions": [
+    "L_withdraw_bank_1"
+  ],
+  "fix_parameters": {
+    "names": [
+      "max_snacks"
+    ],
+    "values": [
+      "5"
+    ]
+  },
+  "variable_parameters": {
+    "names": [
+      "cash"
+    ],
+    "top": [
+      110.0
+    ],
+    "down": [
+      0.0
+    ]
+  },
+  "subsymbolic_preconditions": [
+    [
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0",
+      ">=0.0"
+    ]
+  ],
+  "listener": {
+    "labels": [
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "10.0",
+        "10.0",
+        "0.0"
+      ]
+    ],
+    "variable_parameters": [
+      [
+        "10.0"
+      ]
+    ]
+  },
+  "problem": {
+    "init": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      "5.0",
+      "200",
+      "200"
+    ],
+    "goal": [
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      ">=0.0",
+      "<=200",
+      "<=200"
+    ]
+  },
+  "dataset": {
+    "name": "L_withdraw_bank_1",
+    "input_layout": {
+      "state": [
+        "at_pub",
+        "at_supermarket",
+        "at_home",
+        "at_bank_1",
+        "at_bank_2",
+        "can_withdraw_money_bank1",
+        "can_withdraw_money_bank2",
+        "canbuy_pub",
+        "canbuy_supermarket",
+        "gotsnackes",
+        "have_enough_dollar",
+        "in_pocket",
+        "max_withdraw_bank_1",
+        "max_withdraw_bank_2"
+      ],
+      "fix_parameters": [
+        "max_snacks"
+      ],
+      "variable_parameters": [
+        "cash"
+      ]
+    },
+    "output_layout": {
+      "state": [
+        "at_pub",
+        "at_supermarket",
+        "at_home",
+        "at_bank_1",
+        "at_bank_2",
+        "can_withdraw_money_bank1",
+        "can_withdraw_money_bank2",
+        "canbuy_pub",
+        "canbuy_supermarket",
+        "gotsnackes",
+        "have_enough_dollar",
+        "in_pocket",
+        "max_withdraw_bank_1",
+        "max_withdraw_bank_2"
+      ]
+    },
+    "state_sampling": {
+      "at_pub": {
+        "type": "fixed",
+        "value": false
+      },
+      "at_supermarket": {
+        "type": "fixed",
+        "value": false
+      },
+      "at_home": {
+        "type": "fixed",
+        "value": false
+      },
+      "at_bank_1": {
+        "type": "fixed",
+        "value": true
+      },
+      "at_bank_2": {
+        "type": "fixed",
+        "value": false
+      },
+      "can_withdraw_money_bank1": {
+        "type": "fixed",
+        "value": true
+      },
+      "can_withdraw_money_bank2": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "canbuy_pub": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "canbuy_supermarket": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "gotsnackes": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "have_enough_dollar": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "in_pocket": {
+        "type": "categorical",
+        "values": [
+          false,
+          true
+        ]
+      },
+      "max_withdraw_bank_1": {
+        "type": "range",
+        "min": 0,
+        "max": 200,
+        "step": 10
+      },
+      "max_withdraw_bank_2": {
+        "type": "range",
+        "min": 0,
+        "max": 200,
+        "step": 10
+      }
+    },
+    "fix_parameter_sampling": {
+      "max_snacks": {
+        "type": "fixed",
+        "value": 5
+      }
+    },
+    "variable_parameter_sampling": {
+      "cash": {
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 1
+      }
+    },
+    "effects": [
+      {
+        "var": "max_withdraw_bank_1",
+        "op": "add_expr",
+        "expr": "-cash"
+      },
+      {
+        "var": "in_pocket",
+        "op": "add",
+        "src": "cash"
+      }
+    ],
+    "constraints": []
+  },
+  "actions": [
+    {
+      "name": "pub_to_supermarkte",
+      "preconditions": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "-10.0",
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "pub_to_home",
+      "preconditions": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "-10.0",
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "pub_to_bank_1",
+      "preconditions": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "-10.0",
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "pub_to_bank_2",
+      "preconditions": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        "-10.0",
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "supermarket_to_pub",
+      "preconditions": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        true,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "supermarket_to_home",
+      "preconditions": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        "-10.0",
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "supermarket_to_bank_1",
+      "preconditions": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        "-10.0",
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "supermarket_to_bank_2",
+      "preconditions": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        "-10.0",
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "home_to_pub",
+      "preconditions": [
+        false,
+        false,
+        true,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        true,
+        false,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "home_to_supermarket",
+      "preconditions": [
+        false,
+        false,
+        true,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        true,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "home_to_bank_1",
+      "preconditions": [
+        false,
+        false,
+        true,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        "-10.0",
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "home_to_bank_2",
+      "preconditions": [
+        false,
+        false,
+        true,
+        false,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        "-10.0",
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_1_to_pub",
+      "preconditions": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        true,
+        false,
+        false,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_1_to_supermarket",
+      "preconditions": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        true,
+        false,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_1_to_home",
+      "preconditions": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        true,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_1_to_bank_2",
+      "preconditions": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        false,
+        "-10.0",
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_2_to_pub",
+      "preconditions": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        true,
+        false,
+        false,
+        false,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_2_to_supermarket",
+      "preconditions": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        true,
+        false,
+        false,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_2_to_home",
+      "preconditions": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        true,
+        false,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "bank_2_to_bank_1",
+      "preconditions": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        false,
+        true,
+        "-10.0",
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "0.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "buy_snacks_pub",
+      "preconditions": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        null,
+        true,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        "-5.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "buy_snacks_supermarket",
+      "preconditions": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        null,
+        null,
+        true,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        "-5.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    {
+      "name": "withdraw_bank_1",
+      "preconditions": [
+        "200.0",
+        false,
+        false,
+        true,
+        false,
+        true,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "cash",
+        "-cash",
+        "0.0"
+      ]
+    },
+    {
+      "name": "withdraw_bank_2",
+      "preconditions": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        null,
+        true,
+        null,
+        null,
+        null,
+        null,
+        ">=5.0",
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        "cash",
+        "0.0",
+        "-cash"
+      ]
+    },
+    {
+      "name": "check_pocket",
+      "preconditions": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        ">=100.0",
+        null,
+        null
+      ],
+      "effects": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        "-100.0",
+        "0.0",
+        "0.0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+    "ID": "test",
+    "DS_DOMAIN": "drone",
+    "Max_Step": 20,
+    "Int_ML": 1,
+    "N_SAMPLES": 1500,
+    "LOG_DIR": "exp/log",
+    "MODEL": "MLP",
+    "DEVICE": "cpu",
+    "SEED": 1,
+    "BATCH_SIZE": 256,
+    "LEARNING_RATE": 7.5e-05,
+    "WEIGHT_DECAY": 1e-12,
+    "EPOCHS": 4500,
+    "N_LAYERS": 4,
+    "N_HIDDEN": 14,
+    "DROPOUT": 0.1,
+    "N_MODELS": 16,
+    "REC_EPOCHS": 2000,
+    "REC_LR": 150.0,
+    "N_REC_VARS": 1,
+    "opti_threshold": 1000,
+    "SCALE": 0,
+    "Listener": "full",
+    "RESULTS": {
+        "train_loss": 24.76555824279785,
+        "val_loss": 9.160141944885254,
+        "test_loss": 8.791447639465332
+    }
+}
